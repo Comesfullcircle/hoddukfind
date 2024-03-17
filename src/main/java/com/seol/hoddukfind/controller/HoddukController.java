@@ -1,12 +1,12 @@
 package com.seol.hoddukfind.controller;
 
+import com.seol.hoddukfind.model.HoddukHouseItem;
 import com.seol.hoddukfind.model.HoddukHouseRequest;
 import com.seol.hoddukfind.service.HoddukService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,4 +20,10 @@ public class HoddukController {
 
         return "OK";
     }
+
+    @GetMapping("/all")
+    public List<HoddukHouseItem> gethoddukHose(){
+        return hoddukService.getHoddukHouse();
+    }
+
 }
